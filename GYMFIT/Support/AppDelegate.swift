@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  GYMRoutine
+//  GYMFIT
 //
 //  Created by Nahuel Terrazas on 19/11/2023.
 //
