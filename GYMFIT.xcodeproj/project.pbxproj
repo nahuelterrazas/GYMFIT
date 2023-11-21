@@ -17,6 +17,10 @@
 		32C383DE2B0BCDE6003D3676 /* RoutinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383DD2B0BCDE6003D3676 /* RoutinesVC.swift */; };
 		32C383E02B0BDEFE003D3676 /* GYMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383DF2B0BDEFE003D3676 /* GYMTabBarController.swift */; };
 		32C383E22B0BE081003D3676 /* QRAccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383E12B0BE081003D3676 /* QRAccessVC.swift */; };
+		32D8C76A2B0C232E001AF58E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8C7692B0C232E001AF58E /* NetworkManager.swift */; };
+		32D8C76C2B0C2483001AF58E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8C76B2B0C2483001AF58E /* Constants.swift */; };
+		32D8C76F2B0C27B0001AF58E /* GYMError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8C76E2B0C27B0001AF58E /* GYMError.swift */; };
+		32D8C7772B0C6EDF001AF58E /* muscleDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8C7762B0C6EDE001AF58E /* muscleDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +36,10 @@
 		32C383DD2B0BCDE6003D3676 /* RoutinesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesVC.swift; sourceTree = "<group>"; };
 		32C383DF2B0BDEFE003D3676 /* GYMTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYMTabBarController.swift; sourceTree = "<group>"; };
 		32C383E12B0BE081003D3676 /* QRAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRAccessVC.swift; sourceTree = "<group>"; };
+		32D8C7692B0C232E001AF58E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		32D8C76B2B0C2483001AF58E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		32D8C76E2B0C27B0001AF58E /* GYMError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYMError.swift; sourceTree = "<group>"; };
+		32D8C7762B0C6EDE001AF58E /* muscleDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = muscleDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +72,9 @@
 		32C383A02B0AA91A003D3676 /* GYMFIT */ = {
 			isa = PBXGroup;
 			children = (
+				32D8C7702B0C2B05001AF58E /* Model */,
+				32D8C76D2B0C2784001AF58E /* Utilities */,
+				32D8C7682B0C2320001AF58E /* Managers */,
 				32C383D82B0BB3DB003D3676 /* CustomViews */,
 				32C383D72B0BA56E003D3676 /* Screens */,
 				32C383E32B0BEEDE003D3676 /* Support */,
@@ -101,6 +112,31 @@
 				32C383AF2B0AA91C003D3676 /* Info.plist */,
 			);
 			path = Support;
+			sourceTree = "<group>";
+		};
+		32D8C7682B0C2320001AF58E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				32D8C7692B0C232E001AF58E /* NetworkManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		32D8C76D2B0C2784001AF58E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				32D8C76B2B0C2483001AF58E /* Constants.swift */,
+				32D8C76E2B0C27B0001AF58E /* GYMError.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		32D8C7702B0C2B05001AF58E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				32D8C7762B0C6EDE001AF58E /* muscleDTO.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,10 +209,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D8C76A2B0C232E001AF58E /* NetworkManager.swift in Sources */,
 				32C383A62B0AA91A003D3676 /* LoginVC.swift in Sources */,
+				32D8C7772B0C6EDF001AF58E /* muscleDTO.swift in Sources */,
+				32D8C76F2B0C27B0001AF58E /* GYMError.swift in Sources */,
 				32C383E22B0BE081003D3676 /* QRAccessVC.swift in Sources */,
 				32C383A22B0AA91A003D3676 /* AppDelegate.swift in Sources */,
 				32C383DC2B0BB9ED003D3676 /* GYMButton.swift in Sources */,
+				32D8C76C2B0C2483001AF58E /* Constants.swift in Sources */,
 				32C383DE2B0BCDE6003D3676 /* RoutinesVC.swift in Sources */,
 				32C383E02B0BDEFE003D3676 /* GYMTabBarController.swift in Sources */,
 				32C383A42B0AA91A003D3676 /* SceneDelegate.swift in Sources */,

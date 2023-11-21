@@ -10,6 +10,7 @@ import UIKit
 class QRAccessVC: UIViewController {
     
     let QRimageView = UIImageView()
+    let timerLabel = UILabel()
     let actionButton = GYMButton(backgroundColor: .systemYellow, title: "Generate new code")
 
     override func viewDidLoad() {
@@ -18,6 +19,7 @@ class QRAccessVC: UIViewController {
         configureViewController()
         configureQR()
         configureActionButton()
+        
     }
     
     func configureViewController() {
@@ -41,14 +43,40 @@ class QRAccessVC: UIViewController {
         ])
     }
     
+    func configureTimer(){
+        view.addSubview(timerLabel)
+        
+        
+        timerLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            timerLabel.topAnchor.constraint(equalTo: QRimageView.bottomAnchor, constant: 15),
+            timerLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
+    }
+    
     func configureActionButton(){
         view.addSubview(actionButton)
+        actionButton.addTarget(self, action: #selector(generateQR), for: .touchUpInside)
         
         NSLayoutConstraint.activate([
         
             actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
             actionButton.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    }
+    
+    @objc func generateQR() {
+        NetworkManager.shared.getQR(for: "usernameLoggedIn") { [weak self] result in
+            guard let self = self else {return}
+            switch result {
+            case .success(let qrCode):
+                DispatchQueue.main.async {
+                    self.QRimageView.image = qrCode
+                }
+            case .failure(let failure):
+                printContent(failure)
+            }
+        }
     }
 
 }
