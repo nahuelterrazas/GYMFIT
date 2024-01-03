@@ -15,10 +15,12 @@ class RoutinesVC: UIViewController {
         configureViewController()
     }
 
+    
     func configureViewController(){
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .secondarySystemBackground
+        title = "Routines"
     }
     
 }

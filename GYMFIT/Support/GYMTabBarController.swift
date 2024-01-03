@@ -18,16 +18,14 @@ class GYMTabBarController: UITabBarController {
     
     func createHomeVC() -> UINavigationController {
         let homeVC = RoutinesVC()
-        homeVC.title = "Routines"
-        homeVC.tabBarItem = UITabBarItem(title: "Routines", image: UIImage(systemName: "calendar"), tag: 0)
+        homeVC.tabBarItem = UITabBarItem(title: "Routines", image: Images.qrCode, tag: 0)
         return UINavigationController(rootViewController: homeVC)
     }
 
     func createQRAccessVC() -> UINavigationController {
-        let QRAccessVC = QRAccessVC()
-        QRAccessVC.title = "Scan to access"
-        QRAccessVC.tabBarItem = UITabBarItem(title: "QR", image: UIImage(systemName: "qrcode"), tag: 1)
-        return UINavigationController(rootViewController: QRAccessVC)
+        let qrAccessVC = qrAccessVC()
+        qrAccessVC.tabBarItem = UITabBarItem(title: "QR", image: Images.calendar, tag: 1)
+        return UINavigationController(rootViewController: qrAccessVC)
     }
 
 }

@@ -28,6 +28,7 @@ class GYMTextField: UITextField {
         autocorrectionType = .no
         borderStyle = .roundedRect
         backgroundColor = .systemFill
+        autocapitalizationType = .none
         adjustsFontSizeToFitWidth = true
         translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([heightAnchor.constraint(equalToConstant: 45)])
