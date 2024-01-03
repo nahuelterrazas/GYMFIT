@@ -15,6 +15,16 @@ class qrAccessVC: GFDataLoadingVC {
     var timerCount = 30
     let actionButton = GYMButton(backgroundColor: .systemYellow, title: "Generate new code")
 
+
+    required init() {
+        super.init(nibName: nil, bundle: nil)
+        title = "Scan to access"
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +40,6 @@ class qrAccessVC: GFDataLoadingVC {
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
         view.backgroundColor = .secondarySystemBackground
-        title = "Scan to access"
     }
     
     

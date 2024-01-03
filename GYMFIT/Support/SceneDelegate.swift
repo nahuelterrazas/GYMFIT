@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = newNavigationController
         
         UIView.transition(with: window!,
-                          duration: 0.8,
+                          duration: 0.4,
                           options: .transitionCrossDissolve,
                           animations: nil)
     }
