@@ -7,6 +7,8 @@
 
 import UIKit
 
+var emptyStateView: EmptyStateUIView!
+
 class GFDataLoadingVC: UIViewController {
 
     var containerView: UIView!
@@ -37,5 +39,13 @@ class GFDataLoadingVC: UIViewController {
     func dismissLoadingView() {
         self.containerView.removeFromSuperview()
         self.containerView = nil
+    }
+    
+    
+    
+    func showEmptyStateView(with message: String, with submessage: String, in view: UIView) {
+        emptyStateView = EmptyStateUIView(title: message, subtitle: submessage)
+        emptyStateView.frame = view.bounds
+        view.addSubview(emptyStateView)
     }
 }

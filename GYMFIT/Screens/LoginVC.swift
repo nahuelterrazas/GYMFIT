@@ -10,10 +10,10 @@ import UIKit
 class LoginVC: UIViewController {
 
     let logoImageView = UIImageView()
-    let titleLabel = UILabel()
     let usernameTextField = GYMTextField(text: "Enter a username")
     let passwordTextField = GYMTextField(text: "Enter your password")
     let actionButton = GYMButton(backgroundColor: .systemYellow, title: "Log In")
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,20 +25,23 @@ class LoginVC: UIViewController {
         createDismissKeyboardGesture()
     }
     
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
+    
     func configureViewController(){
-        view.backgroundColor = .black
+        view.backgroundColor = .systemBackground
     }
+    
     
     func configureLogo(){
         view.addSubview(logoImageView)
-        logoImageView.image = UIImage(named: "icon")
-        
+        logoImageView.image = .icon
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             logoImageView.heightAnchor.constraint(equalToConstant: 200),
             logoImageView.widthAnchor.constraint(equalToConstant: 200),
@@ -46,6 +49,7 @@ class LoginVC: UIViewController {
             logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -200)
         ])
     }
+    
     
     func configureUsernameTF(){
         view.addSubview(usernameTextField)
@@ -59,6 +63,7 @@ class LoginVC: UIViewController {
         ])
     }
 
+    
     func configurePasswordTF(){
         view.addSubview(passwordTextField)
         passwordTextField.returnKeyType = .go
@@ -71,6 +76,7 @@ class LoginVC: UIViewController {
         ])
     }
     
+    
     func ConfigureLoginButton(){
         view.addSubview(actionButton)
         actionButton.addTarget(self, action: #selector(pushHomeVC), for: .touchUpInside)
@@ -82,14 +88,14 @@ class LoginVC: UIViewController {
         ])
     }
     
+    
     func createDismissKeyboardGesture() {
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap)
     }
     
-    @objc func pushHomeVC(){
-        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setNewRootViewController()
-    }
+    
+    @objc func pushHomeVC(){ (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.setNewRootViewController() }
 }
 
 extension LoginVC: UITextFieldDelegate {
@@ -105,20 +111,4 @@ extension LoginVC: UITextFieldDelegate {
         }
         return true
     }
-
 }
-
-
-
-//    func configureLabel(){
-//        view.addSubview(titleLabel)
-//        titleLabel.text = "GYM"
-//        titleLabel.font = .systemFont(ofSize: 40, weight: .bold)
-//        titleLabel.textColor = .white
-//
-//        titleLabel.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            titleLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 30),
-//            titleLabel.centerXAnchor.constraint(equalTo: logoImageView.centerXAnchor)
-//        ])
-//    }

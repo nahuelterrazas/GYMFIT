@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32073F062B47107B0097B378 /* RoutinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32073F052B47107B0097B378 /* RoutinesVC.swift */; };
+		320799512B49B166005A57EF /* GYMPopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320799502B49B166005A57EF /* GYMPopUpButton.swift */; };
 		32741F252B452B6F00B36016 /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32741F242B452B6F00B36016 /* GFDataLoadingVC.swift */; };
+		3295979C2B4A265E0054AA34 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295979B2B4A265E0054AA34 /* TableViewHeader.swift */; };
+		329D566A2B48962100B8CF04 /* EmptyStateUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D56692B48962100B8CF04 /* EmptyStateUIView.swift */; };
+		32A4A2A52B45D15000CD4005 /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A4A2A42B45D15000CD4005 /* ExerciseCell.swift */; };
 		32C383A22B0AA91A003D3676 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383A12B0AA91A003D3676 /* AppDelegate.swift */; };
 		32C383A42B0AA91A003D3676 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383A32B0AA91A003D3676 /* SceneDelegate.swift */; };
 		32C383A62B0AA91A003D3676 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383A52B0AA91A003D3676 /* LoginVC.swift */; };
@@ -15,17 +20,25 @@
 		32C383AE2B0AA91C003D3676 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32C383AC2B0AA91C003D3676 /* LaunchScreen.storyboard */; };
 		32C383DA2B0BB40A003D3676 /* GYMTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383D92B0BB40A003D3676 /* GYMTextField.swift */; };
 		32C383DC2B0BB9ED003D3676 /* GYMButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383DB2B0BB9ED003D3676 /* GYMButton.swift */; };
-		32C383DE2B0BCDE6003D3676 /* RoutinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383DD2B0BCDE6003D3676 /* RoutinesVC.swift */; };
 		32C383E02B0BDEFE003D3676 /* GYMTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383DF2B0BDEFE003D3676 /* GYMTabBarController.swift */; };
 		32C383E22B0BE081003D3676 /* qrAccessVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32C383E12B0BE081003D3676 /* qrAccessVC.swift */; };
 		32D8C76A2B0C232E001AF58E /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8C7692B0C232E001AF58E /* NetworkManager.swift */; };
 		32D8C76C2B0C2483001AF58E /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8C76B2B0C2483001AF58E /* Constants.swift */; };
 		32D8C76F2B0C27B0001AF58E /* GYMError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8C76E2B0C27B0001AF58E /* GYMError.swift */; };
 		32D8C7772B0C6EDF001AF58E /* muscleDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32D8C7762B0C6EDE001AF58E /* muscleDTO.swift */; };
+		32EA1C422B4601430074A9C5 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA1C412B4601430074A9C5 /* UIView+Ext.swift */; };
+		32EA1C442B460B360074A9C5 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA1C432B460B360074A9C5 /* Exercise.swift */; };
+		32EA1C492B4665700074A9C5 /* SquareTextUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA1C482B4665700074A9C5 /* SquareTextUIView.swift */; };
+		32EA1C4D2B4684BE0074A9C5 /* ExerciseInfoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32EA1C4C2B4684BE0074A9C5 /* ExerciseInfoVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32073F052B47107B0097B378 /* RoutinesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesVC.swift; sourceTree = "<group>"; };
+		320799502B49B166005A57EF /* GYMPopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYMPopUpButton.swift; sourceTree = "<group>"; };
 		32741F242B452B6F00B36016 /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
+		3295979B2B4A265E0054AA34 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
+		329D56692B48962100B8CF04 /* EmptyStateUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateUIView.swift; sourceTree = "<group>"; };
+		32A4A2A42B45D15000CD4005 /* ExerciseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		32C3839E2B0AA91A003D3676 /* GYMFIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GYMFIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C383A12B0AA91A003D3676 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32C383A32B0AA91A003D3676 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -35,13 +48,16 @@
 		32C383AF2B0AA91C003D3676 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32C383D92B0BB40A003D3676 /* GYMTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYMTextField.swift; sourceTree = "<group>"; };
 		32C383DB2B0BB9ED003D3676 /* GYMButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYMButton.swift; sourceTree = "<group>"; };
-		32C383DD2B0BCDE6003D3676 /* RoutinesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesVC.swift; sourceTree = "<group>"; };
 		32C383DF2B0BDEFE003D3676 /* GYMTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYMTabBarController.swift; sourceTree = "<group>"; };
 		32C383E12B0BE081003D3676 /* qrAccessVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = qrAccessVC.swift; sourceTree = "<group>"; };
 		32D8C7692B0C232E001AF58E /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		32D8C76B2B0C2483001AF58E /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		32D8C76E2B0C27B0001AF58E /* GYMError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYMError.swift; sourceTree = "<group>"; };
 		32D8C7762B0C6EDE001AF58E /* muscleDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = muscleDTO.swift; sourceTree = "<group>"; };
+		32EA1C412B4601430074A9C5 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
+		32EA1C432B460B360074A9C5 /* Exercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		32EA1C482B4665700074A9C5 /* SquareTextUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SquareTextUIView.swift; sourceTree = "<group>"; };
+		32EA1C4C2B4684BE0074A9C5 /* ExerciseInfoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseInfoVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +79,31 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		329D56682B4895F800B8CF04 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				32C383D92B0BB40A003D3676 /* GYMTextField.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		329D566B2B48AA7800B8CF04 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				32C383DB2B0BB9ED003D3676 /* GYMButton.swift */,
+				320799502B49B166005A57EF /* GYMPopUpButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		32A4A2A32B45C90B00CD4005 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				32A4A2A42B45D15000CD4005 /* ExerciseCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		32C383952B0AA91A003D3676 = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +123,7 @@
 		32C383A02B0AA91A003D3676 /* GYMFIT */ = {
 			isa = PBXGroup;
 			children = (
+				32EA1C402B4600520074A9C5 /* Extensions */,
 				32D8C7702B0C2B05001AF58E /* Model */,
 				32D8C76D2B0C2784001AF58E /* Utilities */,
 				32D8C7682B0C2320001AF58E /* Managers */,
@@ -97,7 +139,8 @@
 			children = (
 				32C383A52B0AA91A003D3676 /* LoginVC.swift */,
 				32C383E12B0BE081003D3676 /* qrAccessVC.swift */,
-				32C383DD2B0BCDE6003D3676 /* RoutinesVC.swift */,
+				32073F052B47107B0097B378 /* RoutinesVC.swift */,
+				32EA1C4C2B4684BE0074A9C5 /* ExerciseInfoVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -105,9 +148,11 @@
 		32C383D82B0BB3DB003D3676 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				32C383D92B0BB40A003D3676 /* GYMTextField.swift */,
 				32741F232B452B2C00B36016 /* ViewControllers */,
-				32C383DB2B0BB9ED003D3676 /* GYMButton.swift */,
+				32EA1C472B46654A0074A9C5 /* Views */,
+				32A4A2A32B45C90B00CD4005 /* Cells */,
+				329D566B2B48AA7800B8CF04 /* Buttons */,
+				329D56682B4895F800B8CF04 /* TextFields */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -146,8 +191,27 @@
 			isa = PBXGroup;
 			children = (
 				32D8C7762B0C6EDE001AF58E /* muscleDTO.swift */,
+				32EA1C432B460B360074A9C5 /* Exercise.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		32EA1C402B4600520074A9C5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				32EA1C412B4601430074A9C5 /* UIView+Ext.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		32EA1C472B46654A0074A9C5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				32EA1C482B4665700074A9C5 /* SquareTextUIView.swift */,
+				329D56692B48962100B8CF04 /* EmptyStateUIView.swift */,
+				3295979B2B4A265E0054AA34 /* TableViewHeader.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -221,16 +285,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				32D8C76A2B0C232E001AF58E /* NetworkManager.swift in Sources */,
+				32EA1C442B460B360074A9C5 /* Exercise.swift in Sources */,
 				32C383A62B0AA91A003D3676 /* LoginVC.swift in Sources */,
+				32EA1C422B4601430074A9C5 /* UIView+Ext.swift in Sources */,
+				320799512B49B166005A57EF /* GYMPopUpButton.swift in Sources */,
 				32D8C7772B0C6EDF001AF58E /* muscleDTO.swift in Sources */,
+				3295979C2B4A265E0054AA34 /* TableViewHeader.swift in Sources */,
 				32D8C76F2B0C27B0001AF58E /* GYMError.swift in Sources */,
 				32741F252B452B6F00B36016 /* GFDataLoadingVC.swift in Sources */,
+				32A4A2A52B45D15000CD4005 /* ExerciseCell.swift in Sources */,
 				32C383E22B0BE081003D3676 /* qrAccessVC.swift in Sources */,
 				32C383A22B0AA91A003D3676 /* AppDelegate.swift in Sources */,
 				32C383DC2B0BB9ED003D3676 /* GYMButton.swift in Sources */,
 				32D8C76C2B0C2483001AF58E /* Constants.swift in Sources */,
-				32C383DE2B0BCDE6003D3676 /* RoutinesVC.swift in Sources */,
+				32073F062B47107B0097B378 /* RoutinesVC.swift in Sources */,
+				32EA1C4D2B4684BE0074A9C5 /* ExerciseInfoVC.swift in Sources */,
 				32C383E02B0BDEFE003D3676 /* GYMTabBarController.swift in Sources */,
+				32EA1C492B4665700074A9C5 /* SquareTextUIView.swift in Sources */,
+				329D566A2B48962100B8CF04 /* EmptyStateUIView.swift in Sources */,
 				32C383A42B0AA91A003D3676 /* SceneDelegate.swift in Sources */,
 				32C383DA2B0BB40A003D3676 /* GYMTextField.swift in Sources */,
 			);
@@ -385,6 +457,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -414,6 +487,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

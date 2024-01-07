@@ -14,12 +14,12 @@ class qrAccessVC: GFDataLoadingVC {
     var timer = Timer()
     var timerCount = 30
     let actionButton = GYMButton(backgroundColor: .systemYellow, title: "Generate new code")
-
-
+    
+    
     required init() {
         super.init(nibName: nil, bundle: nil)
-        title = "Scan to access"
     }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -37,17 +37,17 @@ class qrAccessVC: GFDataLoadingVC {
     
     
     func configureViewController() {
+        title = "Escanear"
+        view.backgroundColor = .secondarySystemBackground
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .secondarySystemBackground
     }
     
     
     func configureQR(){
         view.addSubview(QRimageView)
-        QRimageView.image = Images.qrPlaceholder
-        QRimageView.tintColor = .white
-        QRimageView.layer.cornerRadius = 40
+        QRimageView.image = Images.qrCode
+        QRimageView.tintColor = .label
         QRimageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -61,7 +61,9 @@ class qrAccessVC: GFDataLoadingVC {
     
     func configureActionButton(){
         view.addSubview(actionButton)
-        actionButton.addTarget(self, action: #selector(generateQR), for: .touchUpInside)
+        actionButton.addAction(UIAction(handler: { _ in
+            self.generateQR()
+        }), for: .primaryActionTriggered)
         
         NSLayoutConstraint.activate([
             actionButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -30),
@@ -81,11 +83,12 @@ class qrAccessVC: GFDataLoadingVC {
     }
     
     
-    @objc func generateQR() {
+    func generateQR() {
         timerLabel.text = ""
         timer.invalidate()
         timerCount = 30
         showLoadingView()
+        
         Task {
             do{
                 let qr = try await NetworkManager.shared.getQR(for: "username")
@@ -93,7 +96,7 @@ class qrAccessVC: GFDataLoadingVC {
                 dismissLoadingView()
                 createTimer()
             } catch {
-                self.QRimageView.image = Images.qrPlaceholder
+                self.QRimageView.image = Images.qrCode
                 dismissLoadingView()
                 throw error
             }
@@ -108,7 +111,6 @@ class qrAccessVC: GFDataLoadingVC {
     
     
     @objc func startCountdown() {
-
         if timerCount != 0 {
             timerCount = timerCount - 1
             timerLabel.text = "Valid for \(timerCount) seconds"

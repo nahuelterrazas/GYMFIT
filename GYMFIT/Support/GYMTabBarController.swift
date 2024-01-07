@@ -13,18 +13,20 @@ class GYMTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .systemYellow
-        viewControllers = [createQRAccessVC(), createHomeVC()]
+        viewControllers = [createQRAccessVC(), createRoutinesVC()]
     }
     
-    func createHomeVC() -> UINavigationController {
+    
+    func createRoutinesVC() -> UINavigationController {
         let homeVC = RoutinesVC()
-        homeVC.tabBarItem = UITabBarItem(title: "Routines", image: Images.qrCode, tag: 0)
+        homeVC.tabBarItem = UITabBarItem(title: "Rutinas", image: Images.calendar, tag: 0)
         return UINavigationController(rootViewController: homeVC)
     }
 
+    
     func createQRAccessVC() -> UINavigationController {
         let qrAccessVC = qrAccessVC()
-        qrAccessVC.tabBarItem = UITabBarItem(title: "QR", image: Images.calendar, tag: 1)
+        qrAccessVC.tabBarItem = UITabBarItem(title: "QR", image: Images.qrCode, tag: 1)
         return UINavigationController(rootViewController: qrAccessVC)
     }
 

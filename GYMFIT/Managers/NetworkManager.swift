@@ -8,12 +8,16 @@
 import UIKit
 
 class NetworkManager {
+    
     static let shared = NetworkManager()
     let decoder = JSONDecoder()
 
+    
     private init() { decoder.keyDecodingStrategy = .convertFromSnakeCase }
     
+    
     func getQR(for username: String) async throws -> UIImage? {
+        
         let endPoint = Constants.QRBaseURL + username + "\(Date())"
         
         guard let url = URL(string: endPoint) else { throw GYMError.unableToComplete }
@@ -23,7 +27,9 @@ class NetworkManager {
         return UIImage(data: data)
     }
     
+    
     func getExercises(for muscle: String) async throws -> [exerciseDTO] {
+        
         let endPoint = Constants.exerciseBaseURL + muscle + "&X-Api-Key=\(Constants.apiKey)"
         
         guard let url = URL(string: endPoint) else { throw GYMError.unableToComplete }
@@ -38,5 +44,4 @@ class NetworkManager {
             throw GYMError.unableToDecode
         }
     }
-    
 }

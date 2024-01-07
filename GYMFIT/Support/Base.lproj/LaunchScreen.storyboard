@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,25 +17,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon" translatesAutoresizingMaskIntoConstraints="NO" id="utX-Ma-OT4">
-                                <rect key="frame" x="76" y="306" width="240" height="240"/>
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                <rect key="frame" x="96.666666666666686" y="326" width="200.00000000000006" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="8Ud-cV-mkV"/>
+                                    <constraint firstAttribute="height" constant="200" id="qCg-nq-CFM"/>
+                                </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GYM FIT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BFY-Lc-1Ow">
-                                <rect key="frame" x="108" y="246" width="176" height="52"/>
-                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="43"/>
-                                <color key="textColor" red="0.96078431369999995" green="0.92549019610000005" blue="0.23137254900000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="utX-Ma-OT4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="247" id="ZJY-St-FwS"/>
-                            <constraint firstItem="BFY-Lc-1Ow" firstAttribute="centerX" secondItem="utX-Ma-OT4" secondAttribute="centerX" id="dKN-k0-hj1"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="utX-Ma-OT4" secondAttribute="bottom" constant="272" id="ii3-7B-53N"/>
-                            <constraint firstItem="utX-Ma-OT4" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="76" id="jjs-Oy-3yY"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="utX-Ma-OT4" secondAttribute="trailing" constant="77" id="qKp-Qx-bUX"/>
-                            <constraint firstItem="utX-Ma-OT4" firstAttribute="top" secondItem="BFY-Lc-1Ow" secondAttribute="bottom" constant="8" id="teh-4w-Cd7"/>
+                            <constraint firstItem="utX-Ma-OT4" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2C3-Vl-eYf"/>
+                            <constraint firstItem="utX-Ma-OT4" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="gLH-wc-anM"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -44,6 +38,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="icon" width="700" height="700"/>
+        <image name="icon" width="520" height="520"/>
     </resources>
 </document>

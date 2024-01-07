@@ -16,13 +16,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
 
-        let loginVC = LoginVC()
+//        let loginVC = LoginVC()
 
-        let navigationController = UINavigationController(rootViewController: loginVC)
+//        let navigationController = UINavigationController(rootViewController: loginVC)
         window = UIWindow(windowScene: windowScene)
-        window?.rootViewController = navigationController
+        window?.rootViewController = GYMTabBarController()
         window?.makeKeyAndVisible()
-        window?.overrideUserInterfaceStyle = .dark
     }
 
     func setNewRootViewController() {
@@ -33,6 +32,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                           duration: 0.4,
                           options: .transitionCrossDissolve,
                           animations: nil)
+    }
+    
+    func configureNavigationBar() {
+        UINavigationBar.appearance().tintColor = .systemYellow
     }
     
 }
