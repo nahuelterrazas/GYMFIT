@@ -1,4 +1,4 @@
 # GYMFIT
 App to have access to the gym and check routines
 
-![ezgif-5-54f9b380b1](https://github.com/nahuelterrazas/GYMFIT/assets/82124213/a4ac8e76-eecc-4561-bbc0-a1a50439dc25)
+![ezgif-1-b38257c7d6](https://github.com/nahuelterrazas/GYMFIT/assets/82124213/3ecb74c8-96ff-4225-9394-493fd7c56eca)
