@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		32073F062B47107B0097B378 /* RoutinesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32073F052B47107B0097B378 /* RoutinesVC.swift */; };
 		320799512B49B166005A57EF /* GYMPopUpButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 320799502B49B166005A57EF /* GYMPopUpButton.swift */; };
+		32330AD82B51D55F00F6238C /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32330AD72B51D55F00F6238C /* SQLiteManager.swift */; };
+		3236C9C92B4DE923000B7F95 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3236C9C82B4DE923000B7F95 /* ProfileVC.swift */; };
 		32741F252B452B6F00B36016 /* GFDataLoadingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32741F242B452B6F00B36016 /* GFDataLoadingVC.swift */; };
 		3295979C2B4A265E0054AA34 /* TableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3295979B2B4A265E0054AA34 /* TableViewHeader.swift */; };
 		329D566A2B48962100B8CF04 /* EmptyStateUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 329D56692B48962100B8CF04 /* EmptyStateUIView.swift */; };
@@ -35,6 +37,8 @@
 /* Begin PBXFileReference section */
 		32073F052B47107B0097B378 /* RoutinesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoutinesVC.swift; sourceTree = "<group>"; };
 		320799502B49B166005A57EF /* GYMPopUpButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GYMPopUpButton.swift; sourceTree = "<group>"; };
+		32330AD72B51D55F00F6238C /* SQLiteManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
+		3236C9C82B4DE923000B7F95 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		32741F242B452B6F00B36016 /* GFDataLoadingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GFDataLoadingVC.swift; sourceTree = "<group>"; };
 		3295979B2B4A265E0054AA34 /* TableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewHeader.swift; sourceTree = "<group>"; };
 		329D56692B48962100B8CF04 /* EmptyStateUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyStateUIView.swift; sourceTree = "<group>"; };
@@ -141,6 +145,7 @@
 				32C383E12B0BE081003D3676 /* qrAccessVC.swift */,
 				32073F052B47107B0097B378 /* RoutinesVC.swift */,
 				32EA1C4C2B4684BE0074A9C5 /* ExerciseInfoVC.swift */,
+				3236C9C82B4DE923000B7F95 /* ProfileVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -174,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				32D8C7692B0C232E001AF58E /* NetworkManager.swift */,
+				32330AD72B51D55F00F6238C /* SQLiteManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -288,8 +294,10 @@
 				32EA1C442B460B360074A9C5 /* Exercise.swift in Sources */,
 				32C383A62B0AA91A003D3676 /* LoginVC.swift in Sources */,
 				32EA1C422B4601430074A9C5 /* UIView+Ext.swift in Sources */,
+				32330AD82B51D55F00F6238C /* SQLiteManager.swift in Sources */,
 				320799512B49B166005A57EF /* GYMPopUpButton.swift in Sources */,
 				32D8C7772B0C6EDF001AF58E /* muscleDTO.swift in Sources */,
+				3236C9C92B4DE923000B7F95 /* ProfileVC.swift in Sources */,
 				3295979C2B4A265E0054AA34 /* TableViewHeader.swift in Sources */,
 				32D8C76F2B0C27B0001AF58E /* GYMError.swift in Sources */,
 				32741F252B452B6F00B36016 /* GFDataLoadingVC.swift in Sources */,

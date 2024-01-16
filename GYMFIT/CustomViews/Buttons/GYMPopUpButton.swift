@@ -17,16 +17,16 @@ class GYMPopUpButton: UIButton {
         super.init(frame: frame)
 
         menu = UIMenu(children: [
-            UIAction(title: "Día 1" , handler: { _ in
+            UIAction(title: "Día 1  " , handler: { _ in
                 self.delegate.changeTableView()
             }),
-            UIAction(title: "Día 2", handler: { _ in
+            UIAction(title: "Día 2  ", handler: { _ in
                 self.delegate.changeTableView()
             }),
-            UIAction(title: "Día 3", handler: { _ in
+            UIAction(title: "Día 3  ", handler: { _ in
                 self.delegate.changeTableView()
             }),
-            UIAction(title: "Día 4", handler: { _ in
+            UIAction(title: "Día 4  ", handler: { _ in
                 self.delegate.changeTableView()
             })
         ])

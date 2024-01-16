@@ -13,17 +13,45 @@ protocol RoutinesVCDelegate: AnyObject {
 
 class RoutinesVC: GFDataLoadingVC {
     
-    let daysButton = GYMPopUpButton()
+    var daysButton = GYMPopUpButton()
     var tableView = UITableView(frame: .zero, style: .insetGrouped)
-    var routine: [Muscle] = DailyRoutines.day1
-    
+    var routine: [ExercisesByMuscle] = []
 
+    
+    init() {
+        super.init(nibName: nil, bundle: nil)
+        self.routine = DailyRoutinesByMuscle.day1
+    }
+    
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        if isAppFirstLaunch() {
+            configureDB()
+        }
         configureViewController()
+        configureDaysButton()
         configureTablenView()
     }
-
+    
+    
+    func isAppFirstLaunch() -> Bool {
+        let defaults = UserDefaults.standard
+        if let _ = defaults.string(forKey: "isAppFirstLaunch") {
+            print("App already launched")
+            return false
+        } else {
+            defaults.set(true, forKey: "isAppFirstLaunch")
+            print("App launched first time")
+            return true
+        }
+    }
+    
     
     func configureViewController(){
         navigationController?.setNavigationBarHidden(true, animated: true)
@@ -32,9 +60,17 @@ class RoutinesVC: GFDataLoadingVC {
     }
     
     
+    func configureDaysButton() {
+        daysButton.delegate = self
+        daysButton.tintColor = .label
+        daysButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
+        daysButton.configuration?.imagePadding = 50
+        daysButton.semanticContentAttribute = UIApplication.shared
+            .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
+    }
+    
     func configureTablenView() {
         let headerTableView = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 87), button: daysButton)
-        daysButton.delegate = self
 
         view.addSubview(tableView)
         tableView.tableHeaderView = headerTableView
@@ -50,13 +86,20 @@ class RoutinesVC: GFDataLoadingVC {
             tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),      
         ])
     }
+    
+    
+    func configureDB() {
+        for exercise in Constants.listOfAllExercises {
+            SQLiteManager.shared.insert(name: exercise.name, weight: 0)
+        }
+    }
 }
 
 
 extension RoutinesVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        routine[section].title
+        routine[section].muscle
     }
 
 
@@ -107,31 +150,33 @@ extension RoutinesVC: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let exercise = routine[indexPath.section].exercises[indexPath.row]
-        let destVC =  ExerciseInfoVC(title: exercise.title, image: exercise.image)
-        
-        if let sheet = destVC.sheetPresentationController {
+        let destVC =  ExerciseInfoVC(exerciseSelected: exercise)
+        let navController   = UINavigationController(rootViewController: destVC)
+
+        if let sheet = navController.sheetPresentationController {
             sheet.detents = [.medium()]
-            sheet.prefersGrabberVisible = true
         }
-        present(destVC, animated: true)
+        
+        present(navController, animated: true)
     }
 }
 
 
 extension RoutinesVC: RoutinesVCDelegate {
+    
     func changeTableView() {
         switch daysButton.currentTitle! {
-        case "Día 1" :
-            routine = DailyRoutines.day1
+        case "Día 1  " :
+            routine = DailyRoutinesByMuscle.day1
             break
-        case "Día 2":
-            routine = DailyRoutines.day2
+        case "Día 2  ":
+            routine = DailyRoutinesByMuscle.day2
             break
-        case "Día 3":
-            routine = DailyRoutines.day3
+        case "Día 3  ":
+            routine = DailyRoutinesByMuscle.day3
             break
-        case "Día 4":
-            routine = DailyRoutines.day4
+        case "Día 4  ":
+            routine = DailyRoutinesByMuscle.day4
             break
         default:
             break

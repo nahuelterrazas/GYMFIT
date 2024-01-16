@@ -8,29 +8,28 @@
 import UIKit
 
 struct Exercise {
-    let title: String
-    let serires: Int
-    let reps: Int
-    let image: UIImage
-    
-    init(title: String, serires: Int, reps: Int) {
-        self.title = title
-        self.serires = serires
-        self.reps = reps
-        self.image = .icon
-    }
-    
-    init(title: String, serires: Int, reps: Int, image: UIImage) {
-        self.title = title
-        self.serires = serires
-        self.reps = reps
-        self.image = image
-    }
-}
-
-struct Muscle {
-    let title: String
-    var exercises: [Exercise]
+    var name: String
+    var muscle: String
+    var image: UIImage = .icon
 }
 
 
+struct ExerciseAssigned {
+    var exercise: Exercise
+    var serires: Int
+    var reps: Int
+    var weight: Int = 15
+}
+
+
+struct ExerciseSQL {
+    var id: Int = 1
+    var name: String
+    var weightRow: Int = 15
+}
+
+
+struct ExercisesByMuscle {
+    let muscle: String
+    var exercises: [ExerciseAssigned]
+}

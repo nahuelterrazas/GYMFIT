@@ -30,8 +30,8 @@ class ExerciseCell: UITableViewCell {
     }
     
     
-    func set(exercise: Exercise) {
-        titleLabel.text = exercise.title
+    func set(exercise: ExerciseAssigned) {
+        titleLabel.text = exercise.exercise.name
         seriesLabel.set(number: exercise.serires)
         repsLabel.set(number: exercise.reps)
     }

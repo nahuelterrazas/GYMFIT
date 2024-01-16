@@ -13,7 +13,8 @@ class GYMTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .systemYellow
-        viewControllers = [createQRAccessVC(), createRoutinesVC()]
+        viewControllers = [createQRAccessVC(), createRoutinesVC(), createProfileVC()]
+        selectedIndex = 1
     }
     
     
@@ -26,8 +27,14 @@ class GYMTabBarController: UITabBarController {
     
     func createQRAccessVC() -> UINavigationController {
         let qrAccessVC = qrAccessVC()
-        qrAccessVC.tabBarItem = UITabBarItem(title: "QR", image: Images.qrCode, tag: 1)
+        qrAccessVC.tabBarItem = UITabBarItem(title: "Escanear", image: Images.qrCode, tag: 1)
         return UINavigationController(rootViewController: qrAccessVC)
     }
-
+    
+    
+    func createProfileVC() -> UINavigationController {
+        let profileVC = ProfileVC()
+        profileVC.tabBarItem = UITabBarItem(title: "Perfil", image: Images.profile, tag: 2)
+        return UINavigationController(rootViewController: profileVC)
+    }
 }

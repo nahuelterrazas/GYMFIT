@@ -13,7 +13,7 @@ class qrAccessVC: GFDataLoadingVC {
     let timerLabel = UILabel()
     var timer = Timer()
     var timerCount = 30
-    let actionButton = GYMButton(backgroundColor: .systemYellow, title: "Generate new code")
+    let actionButton = GYMButton(backgroundColor: .systemYellow, title: "Generar código")
     
     
     required init() {
@@ -105,7 +105,7 @@ class qrAccessVC: GFDataLoadingVC {
     
     
     func createTimer() {
-        timerLabel.text = "Valid for 30 seconds"
+        timerLabel.text = "Válido por 30 segundos"
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(startCountdown), userInfo: nil, repeats: true)
     }
     
@@ -113,10 +113,10 @@ class qrAccessVC: GFDataLoadingVC {
     @objc func startCountdown() {
         if timerCount != 0 {
             timerCount = timerCount - 1
-            timerLabel.text = "Valid for \(timerCount) seconds"
+            timerLabel.text = "Válido por \(timerCount) segundos"
         } else {
             timer.invalidate()
-            timerLabel.text = " This code is no longer available"
+            timerLabel.text = "El código ya no es válido"
         }
     }
 }
