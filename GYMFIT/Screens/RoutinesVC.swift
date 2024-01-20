@@ -15,18 +15,9 @@ class RoutinesVC: GFDataLoadingVC {
     
     var daysButton = GYMPopUpButton()
     var tableView = UITableView(frame: .zero, style: .insetGrouped)
-    var routine: [ExercisesByMuscle] = []
-
+    var routine: [ExercisesByMuscle] = DailyRoutinesByMuscle.day1
     
-    init() {
-        super.init(nibName: nil, bundle: nil)
-        self.routine = DailyRoutinesByMuscle.day1
-    }
-    
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+    var dataSource: UITableViewDiffableDataSource<Muscle, ExerciseAssigned>!
     
     
     override func viewDidLoad() {
@@ -37,6 +28,8 @@ class RoutinesVC: GFDataLoadingVC {
         configureViewController()
         configureDaysButton()
         configureTablenView()
+        configureDataSource()
+        updateData(on: routine)
     }
     
     
@@ -49,6 +42,13 @@ class RoutinesVC: GFDataLoadingVC {
             defaults.set(true, forKey: "isAppFirstLaunch")
             print("App launched first time")
             return true
+        }
+    }
+    
+    
+    func configureDB() {
+        for exercise in Constants.listOfAllExercises {
+        SQLiteManager.shared.insert(name: exercise.name, weight: 0)
         }
     }
     
@@ -75,7 +75,9 @@ class RoutinesVC: GFDataLoadingVC {
         view.addSubview(tableView)
         tableView.tableHeaderView = headerTableView
         tableView.delegate = self
-        tableView.dataSource = self
+        tableView.sectionHeaderHeight = 30
+        tableView.sectionFooterHeight = 5
+        tableView.alwaysBounceVertical = false
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.register(ExerciseCell.self, forCellReuseIdentifier: ExerciseCell.reuseID)
 
@@ -88,61 +90,29 @@ class RoutinesVC: GFDataLoadingVC {
     }
     
     
-    func configureDB() {
-        for exercise in Constants.listOfAllExercises {
-            SQLiteManager.shared.insert(name: exercise.name, weight: 0)
+    func configureDataSource() {
+        dataSource = UITableViewDiffableDataSource<Muscle, ExerciseAssigned>(tableView: tableView, cellProvider: { (tableView, indexPath, exercise) -> UITableViewCell? in
+            let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.reuseID, for: indexPath) as! ExerciseCell
+            cell.set(exercise: exercise)
+            return cell
+        })
+        dataSource.defaultRowAnimation = .fade
+    }
+    
+    
+    func updateData(on exercises: [ExercisesByMuscle]) {
+        var snapshot = NSDiffableDataSourceSnapshot<Muscle, ExerciseAssigned>()
+
+        for exercisesByMuscle in exercises {
+            snapshot.appendSections([exercisesByMuscle.muscle])
+            snapshot.appendItems(exercisesByMuscle.exercises)
+        }
+        DispatchQueue.main.async {
+            self.dataSource.apply(snapshot, animatingDifferences: true)
         }
     }
 }
 
-
-extension RoutinesVC: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        routine[section].muscle
-    }
-
-
-    func numberOfSections(in tableView: UITableView) -> Int {
-        routine.count
-    }
-
-
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        routine[section].exercises.count
-        
-    }
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ExerciseCell.reuseID, for: indexPath) as! ExerciseCell
-        let exercise = routine[indexPath.section].exercises[indexPath.row]
-        cell.set(exercise: exercise)
-        return cell
-    }
-    
-    
-    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let markAsDone = UIContextualAction(style: .normal, title: "Realizado") { [weak self] (action, view, success) in
-            guard let self else { return }
-        
-            routine[indexPath.section].exercises.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-            
-            if routine[indexPath.section].exercises.isEmpty {
-                routine.remove(at: indexPath.section)
-                tableView.deleteSections([indexPath.section], with: .automatic)
-            }
-            
-            if routine.isEmpty {
-                self.showEmptyStateView(with: "¡Felicidades!", with: "Completaste la rutina del día. Sigue así.", in: tableView)
-            }
-        }
-        markAsDone.backgroundColor = .systemGreen
-        let swipeActions = UISwipeActionsConfiguration(actions: [markAsDone])
-        return swipeActions
-    }
-}
 
 
 extension RoutinesVC: UITableViewDelegate {
@@ -158,6 +128,31 @@ extension RoutinesVC: UITableViewDelegate {
         }
         
         present(navController, animated: true)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let markAsDone = UIContextualAction(style: .normal, title: "Realizado") { [weak self] (action, view, success) in
+            guard let self else { return }
+        
+            routine[indexPath.section].exercises.remove(at: indexPath.row)
+            if routine[indexPath.section].exercises.isEmpty { routine.remove(at: indexPath.section) }
+            updateData(on: routine)
+            
+            if routine.isEmpty { self.showEmptyStateView(with: "¡Felicidades!", with: "Completaste la rutina del día. Sigue así.", in: tableView) }
+        }
+        markAsDone.backgroundColor = .systemGreen
+        let swipeActions = UISwipeActionsConfiguration(actions: [markAsDone])
+        return swipeActions
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let label = UILabel()
+        label.font = .preferredFont(forTextStyle: .footnote)
+        label.textColor = .secondaryLabel
+        label.text = "   " + routine[section].muscle.rawValue.uppercased()
+        return label
     }
 }
 
@@ -185,6 +180,6 @@ extension RoutinesVC: RoutinesVCDelegate {
             emptyStateView.removeFromSuperview()
         }
         tableView.didMoveToSuperview()
-        tableView.reloadData()
+        updateData(on: routine)
     }
 }
