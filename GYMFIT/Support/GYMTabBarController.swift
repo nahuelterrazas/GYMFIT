@@ -13,6 +13,7 @@ class GYMTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         UITabBar.appearance().tintColor = .systemYellow
+        UINavigationBar.appearance().tintColor = .systemYellow
         viewControllers = [createQRAccessVC(), createRoutinesVC(), createProfileVC()]
         selectedIndex = 1
     }

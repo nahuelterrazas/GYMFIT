@@ -10,7 +10,7 @@ import UIKit
 class ExerciseInfoVC: UIViewController {
     
 
-    let lowWeightExercises: [Exercise] = [Exercises.bancoScottMancuerna, Exercises.pressFrancesAcostado, Exercises.estocada, Exercises.sentadillaMancuerna, Exercises.puenteStep]
+    let lowWeightExercises: [Exercise] = [Exercises.bancoScottMancuerna, Exercises.aperturaBancoPlano, Exercises.pressFrancesAcostado, Exercises.estocada, Exercises.sentadillaMancuerna, Exercises.puenteStep]
 
     var weights: [Double] = []
     let imageView = UIImageView()

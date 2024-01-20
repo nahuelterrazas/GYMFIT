@@ -38,7 +38,7 @@ class qrAccessVC: GFDataLoadingVC {
     
     func configureViewController() {
         title = "Escanear"
-        view.backgroundColor = .secondarySystemBackground
+        view.backgroundColor = .systemGroupedBackground
         navigationController?.setNavigationBarHidden(false, animated: true)
         navigationController?.navigationBar.prefersLargeTitles = true
     }

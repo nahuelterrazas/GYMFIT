@@ -13,10 +13,9 @@ class TableViewHeader: UIView {
         super.init(frame: frame)
         self.addSubview(button)
         button.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
+        NSLayoutConstraint.activate([button.leadingAnchor.constraint(equalTo: self.leadingAnchor),
                                      button.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-                                     button.widthAnchor.constraint(equalToConstant: 120 ),
+                                     button.widthAnchor.constraint(equalToConstant: 150),
                                      button.heightAnchor.constraint(equalToConstant: 50)])
     }
     

@@ -15,7 +15,8 @@ class RoutinesVC: GFDataLoadingVC {
     
     var daysButton = GYMPopUpButton()
     var tableView = UITableView(frame: .zero, style: .insetGrouped)
-    var routine: [ExercisesByMuscle] = DailyRoutinesByMuscle.day1
+    var plan = [DailyRoutinesByMuscle.day1, DailyRoutinesByMuscle.day2, DailyRoutinesByMuscle.day3, DailyRoutinesByMuscle.day4]
+    var daySelected = 0
     
     var dataSource: UITableViewDiffableDataSource<Muscle, ExerciseAssigned>!
     
@@ -29,7 +30,7 @@ class RoutinesVC: GFDataLoadingVC {
         configureDaysButton()
         configureTablenView()
         configureDataSource()
-        updateData(on: routine)
+        updateData(on: plan[daySelected])
     }
     
     
@@ -54,9 +55,12 @@ class RoutinesVC: GFDataLoadingVC {
     
     
     func configureViewController(){
-        navigationController?.setNavigationBarHidden(true, animated: true)
-        navigationController?.navigationBar.prefersLargeTitles = true
-        view.backgroundColor = .secondarySystemBackground
+        let refreshButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshDay))
+        navigationItem.rightBarButtonItem = refreshButton
+        
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = false
+        view.backgroundColor = .systemGroupedBackground
     }
     
     
@@ -64,13 +68,12 @@ class RoutinesVC: GFDataLoadingVC {
         daysButton.delegate = self
         daysButton.tintColor = .label
         daysButton.setImage(UIImage(systemName: "chevron.down"), for: .normal)
-        daysButton.configuration?.imagePadding = 50
         daysButton.semanticContentAttribute = UIApplication.shared
             .userInterfaceLayoutDirection == .rightToLeft ? .forceLeftToRight : .forceRightToLeft
     }
     
     func configureTablenView() {
-        let headerTableView = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 87), button: daysButton)
+        let headerTableView = TableViewHeader(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 49), button: daysButton)
 
         view.addSubview(tableView)
         tableView.tableHeaderView = headerTableView
@@ -119,7 +122,7 @@ extension RoutinesVC: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        let exercise = routine[indexPath.section].exercises[indexPath.row]
+        let exercise = plan[daySelected][indexPath.section].exercises[indexPath.row]
         let destVC =  ExerciseInfoVC(exerciseSelected: exercise)
         let navController   = UINavigationController(rootViewController: destVC)
 
@@ -135,11 +138,11 @@ extension RoutinesVC: UITableViewDelegate {
         let markAsDone = UIContextualAction(style: .normal, title: "Realizado") { [weak self] (action, view, success) in
             guard let self else { return }
         
-            routine[indexPath.section].exercises.remove(at: indexPath.row)
-            if routine[indexPath.section].exercises.isEmpty { routine.remove(at: indexPath.section) }
-            updateData(on: routine)
+            plan[daySelected][indexPath.section].exercises.remove(at: indexPath.row)
+            if plan[daySelected][indexPath.section].exercises.isEmpty { plan[daySelected].remove(at: indexPath.section) }
+            updateData(on: plan[daySelected])
             
-            if routine.isEmpty { self.showEmptyStateView(with: "¡Felicidades!", with: "Completaste la rutina del día. Sigue así.", in: tableView) }
+            if plan[daySelected].isEmpty { self.showEmptyStateView(with: "¡Felicidades!", with: "Completaste la rutina del día. Sigue así.", in: tableView) }
         }
         markAsDone.backgroundColor = .systemGreen
         let swipeActions = UISwipeActionsConfiguration(actions: [markAsDone])
@@ -151,7 +154,7 @@ extension RoutinesVC: UITableViewDelegate {
         let label = UILabel()
         label.font = .preferredFont(forTextStyle: .footnote)
         label.textColor = .secondaryLabel
-        label.text = "   " + routine[section].muscle.rawValue.uppercased()
+        label.text = "   " + plan[daySelected][section].muscle.rawValue.uppercased()
         return label
     }
 }
@@ -161,17 +164,17 @@ extension RoutinesVC: RoutinesVCDelegate {
     
     func changeTableView() {
         switch daysButton.currentTitle! {
-        case "Día 1  " :
-            routine = DailyRoutinesByMuscle.day1
+        case "Día 1  ":
+            daySelected = 0
             break
         case "Día 2  ":
-            routine = DailyRoutinesByMuscle.day2
+            daySelected = 1
             break
         case "Día 3  ":
-            routine = DailyRoutinesByMuscle.day3
+            daySelected = 2
             break
         case "Día 4  ":
-            routine = DailyRoutinesByMuscle.day4
+            daySelected = 3
             break
         default:
             break
@@ -180,6 +183,33 @@ extension RoutinesVC: RoutinesVCDelegate {
             emptyStateView.removeFromSuperview()
         }
         tableView.didMoveToSuperview()
-        updateData(on: routine)
+        updateData(on: plan[daySelected])
+        if plan[daySelected].isEmpty {
+            self.showEmptyStateView(with: "¡Felicidades!", with: "Completaste la rutina del día. Sigue así.", in: tableView)
+        }
+    }
+    
+    @objc func refreshDay() {
+        switch daysButton.currentTitle! {
+        case "Día 1  ":
+            plan[0] = DailyRoutinesByMuscle.day1
+            break
+        case "Día 2  ":
+            plan[1] = DailyRoutinesByMuscle.day2
+            break
+        case "Día 3  ":
+            plan[2] = DailyRoutinesByMuscle.day3
+            break
+        case "Día 4  ":
+            plan[3] = DailyRoutinesByMuscle.day4
+            break
+        default:
+            break
+        }
+        if emptyStateView != nil {
+            emptyStateView.removeFromSuperview()
+        }
+        tableView.didMoveToSuperview()
+        updateData(on: plan[daySelected])
     }
 }
